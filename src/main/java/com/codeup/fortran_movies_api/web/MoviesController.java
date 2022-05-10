@@ -34,6 +34,17 @@ public class MoviesController {
                 .orElse(null); // prevent errors by returning null... not the greatest practice, but it'll do for now
     }
 
+    @PostMapping // /api/movies POST
+    public void create(@RequestBody Movie movie){
+        // add to our movies list (fake db)
+        sampleMovies.add(movie);
+    }
+
+    @PostMapping ("many")// /api/movies/many POST
+    public void createMany(@RequestBody List<Movie> movies){ // @RequestBody is very important to knowing how the Request's body maps
+        sampleMovies.addAll(movies); // addAll (on the Collection object) allows us to add all the elements from one collection to another in a single line
+    }
+
     // This utility method simply sets up and populates our sampleMovies backing field
     // Will remove once we integrate with the database
     private List<Movie> setMovies() {
