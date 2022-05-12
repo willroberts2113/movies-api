@@ -27,7 +27,7 @@ CREATE DATABASE IF NOT EXISTS movies_db;
 
 Now we need to configure our data source with Spring.
 
-Add the following to your `application.properties` file, located in
+🚨 Add the following to your `application.properties` file, located in
 `src/main/resources`:
 
 ```
@@ -39,7 +39,7 @@ spring.jpa.show-sql=true
 
 Change the values to be specific for your database setup, if needed.
 
-Next, add the following to your `pom.xml` then reload the project:
+🚨 Next, if you don't already have them, add the following to your `pom.xml` then reload the project:
 
 ```xml
 <dependency>
@@ -83,7 +83,7 @@ The first step is to annotate our POJOs as JPA entities.
 
 Like many other dependencies, we must import the packages in order to use their functionalities.
 
-Add `@Entity` over your `Movie` class declaration as such:
+🚨Add `@Entity` over your `Movie` class declaration as such:
 
 
 ```java
@@ -97,13 +97,13 @@ public class Movie {
 
 Now, hover over that `@Entity` annotation and import the `javax.persistence` package. 
 
-Be *sure* not to accidentally import the Hibernate version of `@Entity`
+👀 Be *sure* not to accidentally import the Hibernate version of `@Entity`
 
 ---
 ### Primary keys
 
 ### `@Id` & `@GeneratedValue`
-Each entity has to have a primary key, which you annotate with the `@Id`
+🚨 Each entity has to have a primary key, which you annotate with the `@Id`
 annotation.
 
 If you want the database to generate automatically an identifier for each
@@ -193,16 +193,15 @@ CREATE TABLE movies (
 
 Repositories are a construct of the Data Access Layer. Specifically, they are a type of object known as a ***Data Access Object (DAO)***.
 
-You may here 'repository' and 'dao' used interchageably. Just know they both are responsible for using a driver to communicate with the database.
-
+You may hear 'repository' and 'dao' used interchageably. 
+Just know they both are responsible for using a driver to communicate with the database.
 
 
 In Spring, the Data Access Layer has a predefined parent class (also called base class) called
 `JpaRepository`. 
 
 
-
-In the `data` package, create an `Interface` called `MovieRepository`. Have the interface extend `JpaRepository` and define the type of objects it will be manipulating (`<Movie, Long>`), as well as the data type of the entity's id (`Long`).
+🚨 In the `data` package, create an `Interface` called `MovieRepository`. Have the interface extend `JpaRepository` and define the type of objects it will be manipulating (`<Movie, Long>`), as well as the data type of the entity's id (`Long`).
 
 ```java
 public interface MovieRepository extends JpaRepository<Movie, Long> {

@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-// TODO: JpaRepository<Entity, PrimaryKeyType>
-public interface moviesRepository extends JpaRepository<Movie, Integer> {
+
+public interface MoviesRepository extends JpaRepository<Movie, Integer> {
 
 
     // TODO: Spring Data is pretty neat in that it reads your method name and interprets how to build the actual implementation of the query!

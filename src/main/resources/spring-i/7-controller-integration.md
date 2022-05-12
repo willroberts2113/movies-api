@@ -21,7 +21,7 @@ public class MoviesController {
 We can use DI in most of the classes in our Spring
 application. We can even inject services into other services! 
 
-This is how you can use it in order to get the list of all Ads.
+This is how you can use it in order to get the list of all Movies.
 
 ```java
 import com.codeup.restblog.data.PostRepository;
@@ -37,18 +37,9 @@ public class MoviesController {
         this.movieRepository = movieRepository;
     }
 
-    @GetMapping
-    public List<Movie> getMovies() {
-        
-        // Because of DI, 
-        // we don't have to do this:
-       
-        // MovieRepository repo = new MovieRepositoryImpl()
-        
-        // Instead, we get this lovely snippet 
-        // and can use MovieRepository over and 
-        // again in this class.
-        return movieRepository.findAll();
+    @PostMapping
+    public Movie create(@RequestBody Movie movie) {
+        movieRepository.save(movie); // BOOM!
     }
 
     // ...
@@ -56,14 +47,6 @@ public class MoviesController {
 ```
 Now THAT was easy, huh? 
 
----
-## Complete Initial Integration
-
-1. Finish integrating the `MovieRepository` into the `MoviesController` by calling it within the create, update, and delete methods.
-
-1. If you need more acute querying for your endpoints, see [Data Persistence, Pt II](14-data-persistence-iii.md).
-
----
 ## The Moment of Truth.
 
 Now, it's time to spin up your application! 
