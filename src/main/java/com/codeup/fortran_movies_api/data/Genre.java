@@ -18,10 +18,8 @@ public class Genre {
     //  -> We're basically being super explicit about where and how the join table should be defined
     @ManyToMany
     @JoinTable(name = "movie_genre",
-            joinColumns =
-            @JoinColumn(name = "genre_id", referencedColumnName = "id"), // the movie_genre genre_id column is a foreign key referencing movies (id) (think that it's just like our FOREIGN KEY SQL statement)
-            inverseJoinColumns =
-            @JoinColumn(name = "movie_id", referencedColumnName = "id") // the movie_id is a foreign key referencing movies (id)
+            joinColumns = @JoinColumn(name = "movie_id"), // the movie_genre genre_id column is a foreign key referencing movies (id) (think that it's just like our FOREIGN KEY SQL statement)
+            inverseJoinColumns = @JoinColumn(name = "genre_id") // the movie_id is a foreign key referencing movies (id)
     )
     private List<Movie> movies;
 

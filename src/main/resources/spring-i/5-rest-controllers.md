@@ -201,7 +201,7 @@ Using examples from above, create another `public` method in `moviesController` 
     You can use `Lombok` to create getters, setters, and constructors for you! 😮
 
 
-## Next Up: [Rest Controllers, pt II](5b-rest-controllers-ii.md)
+## Next Up: [RESTful API Architecture](5b-rest-architecture.md)
 
 
 

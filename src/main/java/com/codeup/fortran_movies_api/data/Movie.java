@@ -26,7 +26,7 @@ public class Movie {
     private Director director;
 
     // TODO: We need to defined the same many-to-many relationship, but from the Movie side (with a little less annotation fun)
-    @ManyToMany(mappedBy = "movies") // <- maps to the Genre class' movies property
+    @ManyToMany(mappedBy = "movies", cascade = CascadeType.ALL) // <- maps to the Genre class' movies property
     @JsonIgnoreProperties("movies") // <- keeps Jackson from making a list of genres with a list of movies with a list of genres with a list of movies...
     private List<Genre> genres;
 
